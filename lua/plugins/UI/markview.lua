@@ -1,0 +1,22 @@
+return {
+    "OXY2DEV/markview.nvim",
+    dependencies = { "catppuccin/nvim" },
+    lazy = true,
+    priority = 49,
+    config = function()
+        local presets = require("markview.presets")
+
+        require("markview").setup({
+            markdown = {
+                headings = presets.headings.arrowed,
+                horizontal_rules = presets.dashed,
+                tables = presets.rounded
+            },
+            preview = {
+                modes = { "i", "n", "no", "c" },
+                hybrid_modes = { "i" },
+                linewise_hybrid_mode = true,
+            },
+        })
+    end
+}
