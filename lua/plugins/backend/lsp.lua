@@ -53,7 +53,6 @@ return {
                 "lua_ls",
                 "pylsp",
                 "ruff",
-                "air",
             },
         })
 
@@ -103,7 +102,6 @@ return {
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
-                { name = "cmp_r" },
             },
 
             mapping = {
