@@ -35,16 +35,9 @@ end)
 vim.keymap.set("n", "<leader><leader>", "za")
 
 -- alpha
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-m>", function()
-    vim.cmd("Neotree close")
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-n>", function()
     vim.cmd("wincmd b")
-    local winnum = #vim.api.nvim_list_wins()
-    if winnum ~= 1 then
-        for i = 1, winnum - 1, 1 do
-            i = i
-            vim.cmd("close")
-        end
-    end
+    vim.cmd("Neotree close")
     vim.cmd("Alpha")
 end)
 

@@ -38,7 +38,7 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 
 -- diagnostics
-vim.diagnostic.config({ virtual_text = true, virtual_lines = true })
+vim.diagnostic.config({ virtual_text = true, virtual_lines = { current_line = true } })
 
 -- other
 vim.o.scrolloff = 5

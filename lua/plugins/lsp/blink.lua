@@ -13,13 +13,22 @@ return {
             completion = { menu = { auto_show = true } },
         },
         keymap = {
-            ["<C-Space>"] = { "show", "hide" },
+            preset = "none",
             ["<Tab>"] = { "select_next", "fallback" },
             ["<S-Tab>"] = { "select_prev", "fallback" },
-            ["<CR>"] = { "accept", "fallback" },
-            ["<Space>"] = { "accept", "fallback" }
+
+            ["<C-Space>"] = { "select_and_accept" },
+            ["<C-e>"] = { "cancel", "fallback" },
+
+            ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
         },
         completion = {
+            list = {
+                selection = {
+                    preselect = false,
+                    auto_insert = true,
+                },
+            },
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
