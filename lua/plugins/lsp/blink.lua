@@ -13,10 +13,11 @@ return {
             completion = { menu = { auto_show = true } },
         },
         keymap = {
-            ["<C-Space>"] = { "hide" },
+            ["<C-Space>"] = { "show", "hide" },
             ["<Tab>"] = { "select_next", "fallback" },
             ["<S-Tab>"] = { "select_prev", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
+            ["<Space>"] = { "accept", "fallback" }
         },
         completion = {
             documentation = {

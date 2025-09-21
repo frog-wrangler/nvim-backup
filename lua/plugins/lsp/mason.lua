@@ -55,6 +55,10 @@ return {
                 vim.keymap.set({ "i", "x", "n", "s" }, "<f4>", function()
                     vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
                 end, options)
+                vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", function()
+                    vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
+                    vim.cmd("write")
+                end)
             end,
         })
 

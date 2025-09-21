@@ -1,5 +1,4 @@
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<Esc>:w<CR>")
-vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<leader>pl", ":pu<CR>")
 vim.keymap.set("n", "<leader>px", '"+p')

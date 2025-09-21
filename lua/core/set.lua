@@ -4,7 +4,6 @@ vim.g.maplocalleader = " "
 -- Line numbers
 vim.o.nu = true
 vim.o.rnu = true
-vim.o.statuscolumn = "%s %l %r"
 
 -- Tabs and tabstop
 vim.o.tabstop = 4
@@ -39,7 +38,7 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 
 -- diagnostics
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = true, virtual_lines = true })
 
 -- other
 vim.o.scrolloff = 5
