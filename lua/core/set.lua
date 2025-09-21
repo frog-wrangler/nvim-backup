@@ -4,14 +4,15 @@ vim.g.maplocalleader = " "
 -- Line numbers
 vim.o.nu = true
 vim.o.rnu = true
+vim.o.statuscolumn = "%s %l %r"
 
 -- Tabs and tabstop
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-
 vim.o.smartindent = true
+vim.o.autoindent = true
 
 -- Folding config w/ufo
 vim.o.foldcolumn = "1"
@@ -38,11 +39,9 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 
 -- diagnostics
-vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, })
+vim.diagnostic.config({ virtual_text = true })
 
--- Prevent less than 5 lines at edges of screen
+-- other
 vim.o.scrolloff = 5
 vim.o.signcolumn = "yes"
---vim.o.isfname:append("@-@")
-
 vim.o.updatetime = 50
