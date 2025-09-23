@@ -22,7 +22,6 @@ return {
                 ":cd /home/FrogWrangler/.config/quickshell | :Neotree current<CR>"),
             dashboard.button("n", "  > Open notes", ":cd /home/FrogWrangler/notes/ | :Neotree current<CR>"),
             dashboard.button("c", "  > Open config", ":e $MYVIMRC | :cd /home/FrogWrangler/.config/nvim/ | :Neotree<CR>"),
-            dashboard.button("f", "  > File search", ":Telescope find_files<CR>"),
             dashboard.button("e", "  > Exit", ":lua Toggle_alpha_open_menu()<CR>"),
         }
 
