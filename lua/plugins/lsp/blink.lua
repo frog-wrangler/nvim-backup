@@ -12,7 +12,7 @@ return {
         },
         "MahanRahmati/blink-nerdfont.nvim",
         "disrupted/blink-cmp-conventional-commits",
-        -- "erooke/blink-cmp-latex",
+        "erooke/blink-cmp-latex",
     },
     opts = {
         signature = { enabled = true },
@@ -33,8 +33,8 @@ return {
         sources = {
             default = { "lsp", "buffer", "snippets", "path", "nerdfont" },
             per_filetype = {
-                markdown = { "dictionary", "nerdfont" },
-                gitcommit = { "conventional_commits" },
+                markdown = { "dictionary", "nerdfont", "latex", "snippets" },
+                gitcommit = { "conventional_commits", "dictionary" },
             },
             providers = {
                 dictionary = {
@@ -54,6 +54,10 @@ return {
                 conventional_commits = {
                     name = 'Conventional Commits',
                     module = 'blink-cmp-conventional-commits',
+                },
+                latex = {
+                    name = "Latex",
+                    module = "blink-cmp-latex",
                 },
             },
         },
