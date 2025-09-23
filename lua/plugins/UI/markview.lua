@@ -1,10 +1,14 @@
 return {
     "OXY2DEV/markview.nvim",
-    dependencies = { "catppuccin/nvim" },
+    dependencies = {
+        "catppuccin/nvim",
+        "Saghen/blink.cmp",
+    },
     lazy = true,
     priority = 49,
     config = function()
         local presets = require("markview.presets")
+        vim.g.markview_blink_loaded = true
 
         require("markview").setup({
             markdown = {

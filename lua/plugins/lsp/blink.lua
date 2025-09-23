@@ -5,6 +5,14 @@ return {
         "rafamadriz/friendly-snippets",
         "nvim-tree/nvim-web-devicons",
         "onsails/lspkind.nvim",
+
+        {
+            'Kaiser-Yang/blink-cmp-dictionary',
+            dependencies = { 'nvim-lua/plenary.nvim' }
+        },
+        "MahanRahmati/blink-nerdfont.nvim",
+        "disrupted/blink-cmp-conventional-commits",
+        -- "erooke/blink-cmp-latex",
     },
     opts = {
         signature = { enabled = true },
@@ -20,7 +28,34 @@ return {
             ["<C-Space>"] = { "select_and_accept" },
             ["<C-e>"] = { "cancel", "fallback" },
 
-            ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+            ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        },
+        sources = {
+            default = { "lsp", "buffer", "snippets", "path", "nerdfont" },
+            per_filetype = {
+                markdown = { "dictionary", "nerdfont" },
+                gitcommit = { "conventional_commits" },
+            },
+            providers = {
+                dictionary = {
+                    module = 'blink-cmp-dictionary',
+                    name = 'Dict',
+                    min_keyword_length = 3,
+                    opts = {
+                        dictionary_files = { vim.fn.expand("~/.config/nvim/lua/data/words_alpha.dict") }
+                    },
+                },
+                nerdfont = {
+                    module = "blink-nerdfont",
+                    name = "Nerd Fonts",
+                    score_offset = 15,
+                    opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
+                },
+                conventional_commits = {
+                    name = 'Conventional Commits',
+                    module = 'blink-cmp-conventional-commits',
+                },
+            },
         },
         completion = {
             list = {
