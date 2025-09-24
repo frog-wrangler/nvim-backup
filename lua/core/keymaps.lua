@@ -4,7 +4,7 @@ vim.keymap.set("n", "<leader>pl", ":pu<CR>")
 vim.keymap.set("n", "<leader>px", '"+p')
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("v", "<C-g>", ":norm gc<CR>")
+-- vim.keymap.set("v", "<C-g>", ":norm gc<CR>")
 
 -- telescope
 local builtin = require("telescope.builtin")
@@ -57,3 +57,8 @@ vim.keymap.set("n", "<leader>j", dap.step_into)
 vim.keymap.set("n", "<leader>k", dap.step_out)
 vim.keymap.set("n", "<leader>l", dap.step_over)
 vim.keymap.set("n", "<leader>h", dap.step_back)
+
+-- neogit
+vim.keymap.set("n", "<leader>gg", function()
+    require("neogit").open()
+end)
