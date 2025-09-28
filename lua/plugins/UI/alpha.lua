@@ -17,11 +17,10 @@ return {
         }
 
         local open_buttons = {
-            dashboard.button("o", "  > Open code", ":cd /home/FrogWrangler/sourceCode/ | :Neotree current<CR>"),
-            dashboard.button("q", "  > Open quickshell",
-                ":cd /home/FrogWrangler/.config/quickshell | :Neotree current<CR>"),
-            dashboard.button("n", "  > Open notes", ":cd /home/FrogWrangler/notes/ | :Neotree current<CR>"),
-            dashboard.button("c", "  > Open config", ":e $MYVIMRC | :cd /home/FrogWrangler/.config/nvim/ | :Neotree<CR>"),
+            dashboard.button("o", "  > Open code", ":cd /home/FrogWrangler/sourceCode/ | :e .<CR>"),
+            dashboard.button("q", "  > Open quickshell", ":cd /home/FrogWrangler/.config/quickshell/ | :e .<CR>"),
+            dashboard.button("n", "  > Open notes", ":cd /home/FrogWrangler/notes/ | :e .<CR>"),
+            dashboard.button("c", "  > Open config", ":cd /home/FrogWrangler/.config/nvim/ | :e .<CR>"),
             dashboard.button("e", "  > Exit", ":lua Toggle_alpha_open_menu()<CR>"),
         }
 

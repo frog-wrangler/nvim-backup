@@ -1,14 +1,15 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "OXY2DEV/markview.nvim" },
+    dependencies = {
+        "OXY2DEV/markview.nvim",
+        "nvim-treesitter/nvim-treesitter-context",
+    },
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.install").prefer_git = false
 
-        local configs = require("nvim-treesitter.configs")
-
-        configs.setup({
-            ensure_installed = { "lua", "c", "vimdoc", "qmljs", "python", "markdown", "markdown_inline", "r", "rnoweb" },
+        require("nvim-treesitter.configs").setup({
+            ensure_installed = { "lua", "c", "vimdoc", "qmljs", "python", "markdown", "markdown_inline" },
             modules = {},
             ignore_install = {},
             auto_install = true,
