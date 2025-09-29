@@ -95,11 +95,15 @@ return {
             }
         })
 
+        local clang_cmd = {
+            "clangd",
+            "--fallback-style=webkit",
+        }
+        if vim.uv.os_uname() == "Windows_NT" then
+            table.insert(clang_cmd, "-target x86_64-pc-windows-gnu")
+        end
         vim.lsp.config("clangd", {
-            cmd = {
-                "clangd",
-                "--fallback-style=webkit",
-            }
+            cmd = clang_cmd,
         })
 
         -- ###
