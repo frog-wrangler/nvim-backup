@@ -20,7 +20,7 @@ return {
             dashboard.button("o", "  > Open code", ":cd ~/sourceCode/ | :e .<CR>"),
             dashboard.button("q", "  > Open quickshell", ":cd ~/.config/quickshell/ | :e .<CR>"),
             dashboard.button("n", "  > Open notes", ":cd ~/notes/ | :e .<CR>"),
-            dashboard.button("c", "  > Open config", ":cd ~/.config/nvim/ | :e .<CR>"),
+            dashboard.button("c", "  > Open config", ":cd " .. vim.fn.stdpath("config") .. " | :e .<CR>"),
             dashboard.button("e", "  > Exit", ":lua Toggle_alpha_open_menu()<CR>"),
         }
 
