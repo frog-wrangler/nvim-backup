@@ -5,5 +5,13 @@ return {
             delay = 500,
             ignore_whitespace = true,
         },
+        signs = {
+            delete    = { show_count = true },
+            topdelete = { show_count = true },
+        },
+        signs_staged = {
+            delete    = { show_count = true },
+            topdelete = { show_count = true },
+        },
     },
 }
