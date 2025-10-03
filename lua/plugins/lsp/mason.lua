@@ -6,6 +6,8 @@ return {
 
         "neovim/nvim-lspconfig",
 
+        "mfussenegger/nvim-jdtls",
+
         "mfussenegger/nvim-dap",
         "igorlfs/nvim-dap-view",
         "theHamsta/nvim-dap-virtual-text",
@@ -38,7 +40,6 @@ return {
                 "debugpy",
                 "codelldb",
                 "java-debug-adapter",
-                "java-test"
             },
             automatic_installation = true,
         })
@@ -89,7 +90,7 @@ return {
                             ignore = { "E501", "E231" },
                             maxLineLength = 120
                         },
-                        yapf = { enabled = true }
+                        yapf = { enabled = true },
                     }
                 }
             }
@@ -99,7 +100,7 @@ return {
             "clangd",
             "--fallback-style=webkit",
         }
-        if vim.uv.os_uname() == "Windows_NT" then
+        if vim.uv.os_uname().sysname == "Windows_NT" then
             table.insert(clang_cmd, "-target x86_64-pc-windows-gnu")
         end
         vim.lsp.config("clangd", {

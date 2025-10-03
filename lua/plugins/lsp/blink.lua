@@ -15,7 +15,6 @@ return {
         "erooke/blink-cmp-latex",
     },
     opts = {
-        signature = { enabled = true },
         cmdline = {
             keymap = { preset = "inherit" },
             completion = { menu = { auto_show = true } },

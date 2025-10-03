@@ -4,12 +4,6 @@ vim.g.maplocalleader = " "
 -- Line numbers
 vim.o.nu = true
 vim.o.rnu = true
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*",
-    callback = function()
-        vim.wo.statuscolumn = "%!v:lua.require('core.statuscolumn').getColumn()"
-    end,
-})
 
 -- Tabs and tabstop
 vim.o.tabstop = 4

@@ -55,7 +55,7 @@ return {
         dashboard.section.buttons.opts.hl = "AlphaButtons"
 
         -- for performance; may break autocmds
-        dashboard.config.opts.noautocmd = true
+        dashboard.config.opts.noautocmd = false
 
         return dashboard.opts
     end,
