@@ -34,19 +34,14 @@ return {
                         namespace = { "gitsigns" },
                         maxwidth = 1,
                         colwidth = 1,
-                        auto = " %#Statement#┆ ",
+                        fillchar = "┆",
+                        fillcharhl = "Statement",
                     },
-                    text = { function(args)
-                        if args.empty then
-                            return " %#Statement#┆ "
-                        end
-                        return ""
-                    end },
                     click = "v:lua.ScSa",
                 },
                 {
                     text = { " " },
-                }
+                },
             },
         })
     end,
