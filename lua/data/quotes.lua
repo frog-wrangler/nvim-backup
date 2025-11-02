@@ -24,7 +24,7 @@ local quote_list = {
     "A good listener is one who helps us overhear ourselves.",
 }
 
-local get_random_formatted = function(list, width)
+local get_random_formatted = function (list, width)
     -- fetching the quote
     math.randomseed(os.time())
     local index = math.random(1, #quote_list)
@@ -55,7 +55,7 @@ local get_random_formatted = function(list, width)
     return formatted
 end
 
-local main = function()
+local main = function ()
     local max_width = 54
     return get_random_formatted(quote_list, max_width)
 end

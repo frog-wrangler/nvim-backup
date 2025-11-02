@@ -6,8 +6,6 @@ return {
 
         "neovim/nvim-lspconfig",
 
-        "mfussenegger/nvim-jdtls",
-
         "mfussenegger/nvim-dap",
         "igorlfs/nvim-dap-view",
         "theHamsta/nvim-dap-virtual-text",
@@ -24,7 +22,7 @@ return {
             },
         },
     },
-    config = function(_, opts)
+    config = function (_, opts)
         require("mason").setup(opts)
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -32,14 +30,13 @@ return {
                 "lua_ls",
                 "pylsp",
                 "rust_analyzer",
-                "jdtls",
+                "texlab",
             },
         })
         require("mason-nvim-dap").setup({
             ensure_installed = {
                 "debugpy",
                 "codelldb",
-                "java-debug-adapter",
             },
             automatic_installation = true,
         })
@@ -51,12 +48,14 @@ return {
 
         local home_dir = vim.fn.expand("~")
 
-        vim.lsp.config("jdtls", {
-            settings = {
-                java = {
-
-                },
+        vim.env.QML_IMPORT_PATH = "/usr/lib/qt6/qml"
+        vim.lsp.config("qmlls", {
+            cmd = {
+                "qmlls",
+                "-E",
             },
+            filetypes = { "qml" },
+            root_markers = { ".git" },
         })
 
         vim.lsp.config("lua_ls", {
@@ -139,7 +138,7 @@ return {
             name = "Launch file",
             type = "codelldb",
             request = "launch",
-            program = function()
+            program = function ()
                 return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
             end,
             cwd = "${workspaceFolder}",

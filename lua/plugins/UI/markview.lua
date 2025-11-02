@@ -6,7 +6,7 @@ return {
     },
     lazy = true,
     priority = 49,
-    config = function()
+    config = function ()
         local presets = require("markview.presets")
         vim.g.markview_blink_loaded = true
 

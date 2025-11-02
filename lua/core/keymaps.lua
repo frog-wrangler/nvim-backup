@@ -6,21 +6,21 @@ local dap = require("dap")
 local dap_view = require("dap-view")
 
 
-local ufo_peek = function()
+local ufo_peek = function ()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
         vim.lsp.buf.hover()
     end
 end
 
-local alpha_open_menu = function()
+local alpha_open_menu = function ()
     vim.cmd("wincmd b")
     vim.cmd("Neotree close")
     require("dap-view").close()
     vim.cmd("Alpha")
 end
 
-local start_dap = function()
+local start_dap = function ()
     dap_view.open()
     dap.continue()
 end
@@ -28,7 +28,7 @@ end
 
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
-    callback = function(event)
+    callback = function (event)
         local options = { buffer = event.buf }
 
         vim.keymap.set("n", "K", ":lua vim.lsp.buf.hover()<CR>", options)
@@ -40,10 +40,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", options)
         vim.keymap.set("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", options)
         vim.keymap.set("n", "<F3>", ":lua vim.lsp.buf.code_action()<CR>", options)
-        vim.keymap.set({ "i", "x", "n", "s" }, "<F4>", function()
+        vim.keymap.set({ "i", "x", "n", "s" }, "<F4>", function ()
             vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
         end, options)
-        vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", function()
+        vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", function ()
             vim.lsp.buf.format({ async = false, timeout_ms = 1000 })
             vim.cmd("write")
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)

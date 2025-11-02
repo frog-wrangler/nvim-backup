@@ -24,7 +24,7 @@ vim.o.wrap = false
 -- Epub
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = { "*.epub" },
-    callback = function(args)
+    callback = function (args)
         local bufName = vim.api.nvim_buf_get_name(args.buf)
         print("Buffer Name is " .. bufName)
         if bufName == "" then return end

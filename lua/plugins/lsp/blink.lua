@@ -34,6 +34,7 @@ return {
             per_filetype = {
                 markdown = { "dictionary", "nerdfont", "latex", "snippets" },
                 gitcommit = { "conventional_commits", "dictionary" },
+                latex = { "lsp", "snippets", "nerdfont", "path" },
             },
             providers = {
                 dictionary = {
@@ -75,7 +76,7 @@ return {
                 draw = {
                     components = {
                         kind_icon = {
-                            text = function(ctx)
+                            text = function (ctx)
                                 local icon = ctx.kind_icon
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
@@ -94,7 +95,7 @@ return {
                             -- Optionally, use the highlight groups from nvim-web-devicons
                             -- You can also add the same function for `kind.highlight` if you want to
                             -- keep the highlight groups in sync with the icons.
-                            highlight = function(ctx)
+                            highlight = function (ctx)
                                 local hl = ctx.kind_hl
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)

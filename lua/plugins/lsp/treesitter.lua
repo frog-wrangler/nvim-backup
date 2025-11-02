@@ -4,7 +4,7 @@ return {
         "OXY2DEV/markview.nvim",
     },
     build = ":TSUpdate",
-    config = function()
+    config = function ()
         require("nvim-treesitter.install").prefer_git = true
 
         require("nvim-treesitter.configs").setup({

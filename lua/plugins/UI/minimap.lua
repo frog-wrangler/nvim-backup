@@ -1,11 +1,15 @@
 return {
     "Isrothy/neominimap.nvim",
     version = "v3.x.x",
-    init = function()
+    init = function ()
         vim.g.neominimap = {
-            auto_enable = true,
+            auto_enable = false,
             float = {
                 window_border = "none",
+            },
+
+            exclude_filetypes = {
+                "tex",
             },
 
             diagnostic = {
@@ -18,7 +22,7 @@ return {
                 enabled = false,
             },
 
-            winopt = function(wo)
+            winopt = function (wo)
                 wo.statuscolumn = ""
             end
         }

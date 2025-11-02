@@ -1,6 +1,6 @@
 return {
     "luukvbaal/statuscol.nvim",
-    config = function()
+    config = function ()
         local builtin = require("statuscol.builtin")
         require("statuscol").setup({
             relculright = true,
@@ -21,7 +21,7 @@ return {
                 },
                 {
                     text = {
-                        function(args)
+                        function (args)
                             return ((args.relnum == 0) and "%#Statement#" or "")
                         end,
                         builtin.lnumfunc,

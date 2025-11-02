@@ -2,11 +2,11 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     opts = {
-        provider_selector = function(_, _, _)
+        provider_selector = function (_, _, _)
             return { "lsp", "indent" }
         end,
 
-        fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+        fold_virt_text_handler = function (virtText, lnum, endLnum, width, truncate)
             local newVirtText = {}
             local suffix = (" ... %d "):format(endLnum - lnum)
             local sufWidth = vim.fn.strdisplaywidth(suffix)

@@ -4,7 +4,7 @@ return {
         "nvim-tree/nvim-web-devicons",
         "nvim-lua/plenary.nvim",
     },
-    opts = function()
+    opts = function ()
         local dashboard = require("alpha.themes.dashboard")
 
         dashboard.section.header.val = require("data.banners")["random"]
