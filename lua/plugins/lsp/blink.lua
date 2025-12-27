@@ -2,13 +2,12 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     dependencies = {
-        "rafamadriz/friendly-snippets",
         "nvim-tree/nvim-web-devicons",
         "onsails/lspkind.nvim",
-
+        "L3MON4D3/LuaSnip",
         {
-            'Kaiser-Yang/blink-cmp-dictionary',
-            dependencies = { 'nvim-lua/plenary.nvim' }
+            "Kaiser-Yang/blink-cmp-dictionary",
+            dependencies = { "nvim-lua/plenary.nvim" }
         },
         "MahanRahmati/blink-nerdfont.nvim",
         "disrupted/blink-cmp-conventional-commits",
@@ -30,16 +29,16 @@ return {
             ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
         },
         sources = {
-            default = { "lsp", "buffer", "snippets", "path", "nerdfont" },
+            default = { "lsp", "buffer", "snippets", "path" },
             per_filetype = {
-                markdown = { "dictionary", "nerdfont", "latex", "snippets" },
+                markdown = { "dictionary", "nerdfont", "latex" },
                 gitcommit = { "conventional_commits", "dictionary" },
                 latex = { "lsp", "snippets", "nerdfont", "path" },
             },
             providers = {
                 dictionary = {
-                    module = 'blink-cmp-dictionary',
-                    name = 'Dict',
+                    module = "blink-cmp-dictionary",
+                    name = "Dict",
                     min_keyword_length = 3,
                     opts = {
                         dictionary_files = { vim.fn.expand("~/.config/nvim/lua/data/words_alpha.dict") }
@@ -52,14 +51,17 @@ return {
                     opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
                 },
                 conventional_commits = {
-                    name = 'Conventional Commits',
-                    module = 'blink-cmp-conventional-commits',
+                    name = "Conventional Commits",
+                    module = "blink-cmp-conventional-commits",
                 },
                 latex = {
                     name = "Latex",
                     module = "blink-cmp-latex",
                 },
             },
+        },
+        snippets = {
+            preset = "luasnip",
         },
         completion = {
             list = {
@@ -76,7 +78,7 @@ return {
                 draw = {
                     components = {
                         kind_icon = {
-                            text = function (ctx)
+                            text = function(ctx)
                                 local icon = ctx.kind_icon
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
@@ -95,7 +97,7 @@ return {
                             -- Optionally, use the highlight groups from nvim-web-devicons
                             -- You can also add the same function for `kind.highlight` if you want to
                             -- keep the highlight groups in sync with the icons.
-                            highlight = function (ctx)
+                            highlight = function(ctx)
                                 local hl = ctx.kind_hl
                                 if vim.tbl_contains({ "Path" }, ctx.source_name) then
                                     local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)

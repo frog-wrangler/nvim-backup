@@ -22,7 +22,7 @@ return {
             },
         },
     },
-    config = function (_, opts)
+    config = function(_, opts)
         require("mason").setup(opts)
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -48,14 +48,22 @@ return {
 
         local home_dir = vim.fn.expand("~")
 
-        vim.env.QML_IMPORT_PATH = "/usr/lib/qt6/qml"
-        vim.lsp.config("qmlls", {
-            cmd = {
-                "qmlls",
-                "-E",
+        vim.lsp.config("rust_analyzer", {
+            settings = {
+                ["rust_analyzer"] = {
+                    checkOnSave = {
+                        enable = false,
+                    },
+                    diagnostics = {
+                        enable = false,
+                    },
+                },
             },
-            filetypes = { "qml" },
-            root_markers = { ".git" },
+        })
+        vim.lsp.config("bacon-ls", {
+            init_options = {
+                updateOnSaveWaitMillis = 500,
+            },
         })
 
         vim.lsp.config("lua_ls", {
@@ -99,9 +107,6 @@ return {
             "clangd",
             "--fallback-style=webkit",
         }
-        if vim.uv.os_uname().sysname == "Windows_NT" then
-            table.insert(clang_cmd, "-target x86_64-pc-windows-gnu")
-        end
         vim.lsp.config("clangd", {
             cmd = clang_cmd,
         })
@@ -138,7 +143,7 @@ return {
             name = "Launch file",
             type = "codelldb",
             request = "launch",
-            program = function ()
+            program = function()
                 return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
             end,
             cwd = "${workspaceFolder}",

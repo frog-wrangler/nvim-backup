@@ -15,7 +15,11 @@ return {
                 :with_pair(cond.done())
                 :with_move(function(opts)
                     return opts.line:sub(opts.col - 1, opts.col - 1) ~= "$"
-                end)
+                end),
+
+            Rule("\\[", "\\]", { "tex", "markdown" })
+                :with_pair(cond.done())
+                :with_cr(cond.done()),
         })
     end
 }

@@ -6,7 +6,7 @@ return {
     },
     lazy = true,
     priority = 49,
-    config = function ()
+    config = function()
         local presets = require("markview.presets")
         vim.g.markview_blink_loaded = true
 
@@ -18,7 +18,7 @@ return {
             },
             preview = {
                 modes = { "i", "n", "no", "c" },
-                hybrid_modes = { "i" },
+                hybrid_modes = { "i", "n" },
                 linewise_hybrid_mode = true,
             },
         })
