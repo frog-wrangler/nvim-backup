@@ -24,6 +24,9 @@ return {
                     "--smart-case",
                     "--hidden",
                 },
+                preview = {
+                    treesitter = false,
+                },
             },
             extensions = {
                 ["ui-select"] = {
