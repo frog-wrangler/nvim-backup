@@ -57,6 +57,28 @@ return {
                     diagnostics = {
                         enable = false,
                     },
+                    completion = {
+                        hideDeprecated = true,
+                    },
+                    inlayHints = {
+                        bindingModeHints = {
+                            enable = false,
+                        },
+                        chainingHints = {
+                            enable = false,
+                        },
+                        closingBraceHints = {
+                            minLines = 50,
+                        },
+                        closureCaptureHints = {
+                            enable = false,
+                        }
+                    },
+                    imports = {
+                        granularity = {
+                            enforce = true,
+                        },
+                    },
                 },
             },
         })

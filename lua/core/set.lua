@@ -38,7 +38,26 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 
 -- diagnostics
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+    underline = true,
+    severity_sort = true,
+    virtual_text = {
+        source = false,
+    },
+    float = {
+        severity_sort = true,
+        source = true,
+        border = "rounded",
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '!',
+        },
+    },
+})
 
 -- other
 vim.o.scrolloff = 5
