@@ -5,10 +5,6 @@ return {
         "nvim-tree/nvim-web-devicons",
         "onsails/lspkind.nvim",
         "L3MON4D3/LuaSnip",
-        {
-            "Kaiser-Yang/blink-cmp-dictionary",
-            dependencies = { "nvim-lua/plenary.nvim" }
-        },
         "MahanRahmati/blink-nerdfont.nvim",
         "disrupted/blink-cmp-conventional-commits",
         "erooke/blink-cmp-latex",
@@ -31,19 +27,10 @@ return {
         sources = {
             default = { "lsp", "buffer", "snippets", "path" },
             per_filetype = {
-                markdown = { "dictionary", "nerdfont", "latex" },
-                gitcommit = { "conventional_commits", "dictionary" },
+                gitcommit = { "conventional_commits" },
                 latex = { "lsp", "snippets", "nerdfont", "path" },
             },
             providers = {
-                dictionary = {
-                    module = "blink-cmp-dictionary",
-                    name = "Dict",
-                    min_keyword_length = 3,
-                    opts = {
-                        dictionary_files = { vim.fn.expand("~/.config/nvim/lua/data/words_alpha.dict") }
-                    },
-                },
                 nerdfont = {
                     module = "blink-nerdfont",
                     name = "Nerd Fonts",
@@ -86,9 +73,7 @@ return {
                                         icon = dev_icon
                                     end
                                 else
-                                    icon = require("lspkind").symbolic(ctx.kind, {
-                                        mode = "symbol",
-                                    })
+                                    icon = require("lspkind").symbolic(ctx.kind)
                                 end
 
                                 return icon .. ctx.icon_gap
