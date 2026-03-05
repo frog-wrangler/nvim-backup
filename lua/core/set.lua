@@ -63,3 +63,10 @@ vim.diagnostic.config({
 vim.o.scrolloff = 5
 vim.o.signcolumn = "yes"
 vim.o.updatetime = 50
+
+-- edgy
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"

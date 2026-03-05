@@ -1,10 +1,7 @@
 local telescope_builtin = require("telescope.builtin")
-local harpoon_mark = require("harpoon.mark")
-local harpoon_ui = require("harpoon.ui")
 local ufo = require("ufo")
 local dap = require("dap")
 local dap_view = require("dap-view")
-
 
 local ufo_peek = function ()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
@@ -59,8 +56,6 @@ local keys = {
     { "n",                    "<leader>ff",       telescope_builtin.find_files },
     { "n",                    "<leader>fs",       telescope_builtin.live_grep },
     { "n",                    "<leader>fh",       telescope_builtin.help_tags },
-    { "n",                    "<leader>a",        harpoon_mark.add_file },
-    { "n",                    "<C-a>",            harpoon_ui.toggle_quick_menu },
     { "n",                    "<leader>pv",       ":Neotree current .<CR>" },
     { "n",                    "<C-b>",            ":Neotree toggle=true<CR>" },
     { "n",                    "<leader>uO",       ufo.openAllFolds },

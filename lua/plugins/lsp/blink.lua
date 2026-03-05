@@ -29,6 +29,7 @@ return {
             per_filetype = {
                 gitcommit = { "conventional_commits" },
                 latex = { "lsp", "snippets", "nerdfont", "path" },
+                markdown = { "latex", "snippets", "buffer" },
             },
             providers = {
                 nerdfont = {

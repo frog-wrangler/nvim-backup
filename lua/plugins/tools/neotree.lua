@@ -7,10 +7,19 @@ return {
         "MunifTanjim/nui.nvim",
     },
     opts = {
+        sources = {
+            "filesystem",
+            "buffers",
+            "document_symbols",
+        },
         filesystem = {
             filtered_items = {
                 visible = true,
             },
+        },
+        document_symbols = {
+            follow_cursor = true,
+            follow_tree_cursor = true,
         },
         default_component_configs = {
             git_status = {

@@ -127,7 +127,10 @@ return {
 
         local clang_cmd = {
             "clangd",
+            "--clang-tidy",
+            "--suggest-missing-includes",
             "--fallback-style=webkit",
+            "--header-insertion=iwyu",
         }
         vim.lsp.config("clangd", {
             cmd = clang_cmd,

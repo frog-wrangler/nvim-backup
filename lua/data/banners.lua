@@ -114,7 +114,7 @@ local banners = {
 }
 
 return setmetatable(banners, {
-    __index = function (logos, key)
+    __index = function(logos, key)
         if key == "random" then
             math.randomseed(os.time())
 
