@@ -3,7 +3,6 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
         "arkav/lualine-lsp-progress",
-        "folke/noice.nvim",
     },
     opts = {
         options = {
@@ -14,10 +13,7 @@ return {
             globalstatus = true,
         },
         sections = {
-            lualine_a = { {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
-            }, },
+            lualine_a = { "mode" },
             lualine_b = { "branch", "diagnostics" },
             lualine_c = { "filename", {
                 "lsp_progress",
@@ -30,10 +26,7 @@ return {
                     lsp_client_name = { pre = "[", post = "]" },
                 }
             } },
-            lualine_x = { {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
-            }, "filetype" },
+            lualine_x = { "filetype" },
             lualine_y = { "fileformat" },
             lualine_z = { "progress", "location" },
         },
