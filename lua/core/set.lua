@@ -63,6 +63,7 @@ vim.diagnostic.config({
 vim.o.scrolloff = 5
 vim.o.signcolumn = "yes"
 vim.o.updatetime = 50
+vim.o.winborder = "rounded"
 
 -- edgy
 -- views can only be fully collapsed with the global statusline
