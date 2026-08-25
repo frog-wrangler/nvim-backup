@@ -49,7 +49,7 @@ return {
         },
         fmta(
             [[
-            \begin{enumerate}[label=<>]
+            \begin{enumerate}[<>]
                 \item <>
             \end{enumerate}
             ]],
