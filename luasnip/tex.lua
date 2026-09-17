@@ -62,21 +62,6 @@ return {
 
     s(
         {
-            trig = "ff",
-            dscr = "Add fraction",
-        },
-        fmta(
-            "\\frac{<>}{<>}<>",
-            {
-                i(1),
-                i(2),
-                i(0),
-            }
-        )
-    ),
-
-    s(
-        {
             trig = "vs",
             dscr = "Vertical space command",
             snippetType = "autosnippet",
@@ -163,6 +148,19 @@ return {
         },
         {
             t("^{"),
+            i(1),
+            t("}"),
+        }
+    ),
+
+    s(
+        {
+            trig = "oo;",
+            dscr = "Add overline",
+            snippetType = "autosnippet",
+        },
+        {
+            t("\\overline{"),
             i(1),
             t("}"),
         }
