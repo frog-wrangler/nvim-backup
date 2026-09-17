@@ -34,10 +34,7 @@ return {
 
                 print(varName .. num)
 
-                if string.len(num) > 1 then
-                    return varName .. "_{" .. num .. "}"
-                end
-                return varName .. "_" .. num
+                return varName .. "_{" .. num .. "}"
             end)
         }
     ),
