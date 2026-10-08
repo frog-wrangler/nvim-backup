@@ -158,22 +158,23 @@ return {
         vim.fn.sign_define("DapStopped",
             { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
 
-        dap.adapters.codelldb = {
+        dap.adapters.gdb = {
             type = "executable",
-            command = home_dir .. "/.local/share/nvim/mason/bin/codelldb",
-            name = "lldb",
+            command = "gdb",
+            args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
         }
 
-        dap.configurations.cpp = {
-            name = "Launch file",
-            type = "codelldb",
+        dap.configurations.cpp = { {
+            name = "Launch",
+            type = "gdb",
             request = "launch",
             program = function()
                 return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
             end,
+            args = {},
             cwd = "${workspaceFolder}",
-            stopOnEntry = false,
-        }
+            stopAtBeginningOfMainSubprogram = false,
+        } }
 
         require("nvim-dap-virtual-text").setup({})
         require("dap-view").setup({
