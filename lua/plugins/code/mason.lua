@@ -46,9 +46,11 @@ return {
         -- LSP config section
         -- ###
 
-        local home_dir = vim.fn.expand("~")
-
         vim.lsp.config("rust_analyzer", {
+            capabilities = vim.lsp.protocol.make_client_capabilities(),
+            handlers = {
+                ["textDocument/publishDiagnostics"] = function() end,
+            },
             settings = {
                 ["rust_analyzer"] = {
                     checkOnSave = {
